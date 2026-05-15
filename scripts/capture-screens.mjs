@@ -23,6 +23,8 @@ const TARGETS = [
   { path: "/calendar", file: "calendar.png", waitForText: null },
   { path: "/reports", file: "reports.png", waitForText: null },
   { path: "/settlement", file: "settlement.png", waitForText: null },
+  { path: "/carry-out-logs", file: "carry-out-logs.png", waitForText: null },
+  { path: "/lark", file: "lark.png", waitForText: null },
   { path: "/financial-checks", file: "financial-checks.png", waitForText: null },
 ];
 
@@ -41,10 +43,17 @@ async function run() {
   // ---- ログイン ----
   console.log(`[login] ${CRM_URL}/login`);
   await page.goto(`${CRM_URL}/login`, { waitUntil: "domcontentloaded" });
-  await page.fill('input[type="email"]', EMAIL);
-  await page.fill('input[type="password"]', PASSWORD);
+  await page.waitForTimeout(1000);
+  const emailInput = page
+    .locator(
+      'input[type="email"], input[name="email"], input[placeholder*="メール"], input[placeholder*="mail"]',
+    )
+    .first();
+  await emailInput.fill(EMAIL);
+  const passwordInput = page.locator('input[type="password"]').first();
+  await passwordInput.fill(PASSWORD);
   // Supabase auth completes via SPA route change; click then poll URL.
-  await page.click('button[type="submit"]');
+  await page.locator('button[type="submit"]').first().click();
   try {
     await page.waitForURL((url) => !url.pathname.startsWith("/login"), {
       timeout: 30000,
