@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="HOKENA logomark A">
+  <!-- 案A: 盾モチーフ + 帳票ライン (信頼+記録) -->
+  <path d="M32 4 L56 12 V30 C56 44 46 54 32 60 C18 54 8 44 8 30 V12 Z" fill="#0b2545"/>
+  <path d="M20 26 H44 M20 32 H44 M20 38 H36" stroke="#ffffff" stroke-width="2" stroke-linecap="square"/>
+</svg>
