@@ -134,11 +134,11 @@ function FeatureDetailSections() {
           }
         >
           <div
-            className={`container-x grid gap-10 py-16 md:py-20 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center ${
+            className={`container-x grid gap-10 py-16 md:py-20 md:grid-cols-2 md:items-center lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] ${
               index > 0 ? "border-t border-[var(--color-border)]" : ""
             }`}
           >
-            <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+            <div className={index % 2 === 1 ? "md:order-2 min-w-0" : "min-w-0"}>
               <div className="flex items-center gap-3">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-primary)]">
                   <Icon size={22} strokeWidth={1.6} aria-hidden="true" />
@@ -168,7 +168,7 @@ function FeatureDetailSections() {
                 ))}
               </ul>
             </div>
-            <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+            <div className={index % 2 === 1 ? "md:order-1 min-w-0" : "min-w-0"}>
               <BrowserFrame
                 src={feature.screen}
                 alt={`${feature.title}の画面`}

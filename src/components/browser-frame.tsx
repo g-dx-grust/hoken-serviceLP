@@ -42,20 +42,19 @@ export function BrowserFrame({
       )}
     >
       {/* Top bar */}
-      <div className="flex items-center gap-2 h-9 px-3.5 bg-[var(--color-bg-subtle)] border-b border-[var(--color-border)]">
-        <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-2.5 h-9 px-3.5 bg-[var(--color-bg-subtle)] border-b border-[var(--color-border)]">
+        <div className="flex items-center gap-1.5 shrink-0">
           <span className="block w-2.5 h-2.5 rounded-full bg-[#e6e8ee] border border-[var(--color-border-strong)]" />
           <span className="block w-2.5 h-2.5 rounded-full bg-[#e6e8ee] border border-[var(--color-border-strong)]" />
           <span className="block w-2.5 h-2.5 rounded-full bg-[#e6e8ee] border border-[var(--color-border-strong)]" />
         </div>
-        <div className="ml-3 flex-1 max-w-[460px] mx-auto">
+        <div className="flex-1 min-w-0">
           <div className="h-5 px-2.5 flex items-center bg-[var(--color-bg)] border border-[var(--color-border)] rounded-[3px]">
             <span className="text-[10.5px] num text-[var(--color-fg-subtle)] truncate tracking-wide">
               {url}
             </span>
           </div>
         </div>
-        <div className="w-[58px]" />
       </div>
 
       {/* コンテンツ: 動画 or 静止画 */}

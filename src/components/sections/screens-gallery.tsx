@@ -43,7 +43,7 @@ export function ScreensGallery() {
 
         <div className="mt-12 grid md:grid-cols-2 gap-7 md:gap-10">
           {SCREENS.map((s) => (
-            <article key={s.name}>
+            <article key={s.name} className="min-w-0">
               <BrowserFrame
                 videoWebm={`/demo/${s.name}.webm`}
                 videoMp4={`/demo/${s.name}.mp4`}

@@ -51,7 +51,7 @@ export function Hero() {
             </div>
 
             {/* Compact compliance strip */}
-            <div className="mt-10 flex items-center gap-5 border-t border-[var(--color-border)] pt-5">
+            <div className="mt-10 flex flex-wrap items-center gap-5 border-t border-[var(--color-border)] pt-5">
               <div>
                 <p className="text-[10.5px] font-semibold tracking-[0.14em] text-[var(--color-fg-subtle)]">
                   REGULATORY DEADLINE

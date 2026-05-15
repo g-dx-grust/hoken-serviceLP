@@ -82,7 +82,7 @@ export function Solution() {
                 className="grid md:grid-cols-12 gap-8 md:gap-12 items-center"
               >
                 <div
-                  className={`md:col-span-5 ${reverse ? "md:order-2" : ""}`}
+                  className={`md:col-span-5 min-w-0 ${reverse ? "md:order-2" : ""}`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="num text-[13px] font-semibold text-[var(--color-primary)] tracking-wider">
@@ -117,7 +117,7 @@ export function Solution() {
                   </ul>
                 </div>
                 <div
-                  className={`md:col-span-7 ${reverse ? "md:order-1" : ""}`}
+                  className={`md:col-span-7 min-w-0 ${reverse ? "md:order-1" : ""}`}
                 >
                   <BrowserFrame
                     videoWebm={screen.videoWebm}

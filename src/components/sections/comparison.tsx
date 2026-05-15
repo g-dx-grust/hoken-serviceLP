@@ -60,6 +60,12 @@ const ROWS: {
   },
 ];
 
+const COLS = [
+  { key: "excel", label: "Excel・紙", primary: false },
+  { key: "generic", label: "汎用CRM", primary: false },
+  { key: "hokena", label: "HOKENA CRM", primary: true },
+] as const;
+
 function Mark({ value }: { value: "ok" | "partial" | "ng" }) {
   if (value === "ok") {
     return (
@@ -105,7 +111,57 @@ export function Comparison() {
           </p>
         </div>
 
-        <div className="mt-12 overflow-x-auto border border-[var(--color-border)] rounded-[6px]">
+        {/* Mobile: card stack */}
+        <div className="mt-12 md:hidden space-y-2.5">
+          {/* Column header */}
+          <div className="grid grid-cols-3 gap-px bg-[var(--color-border)] border border-[var(--color-border)] rounded-[6px] overflow-hidden">
+            {COLS.map((col) => (
+              <div
+                key={col.key}
+                className={`py-2.5 text-center text-[11px] font-semibold tracking-[0.08em] ${
+                  col.primary
+                    ? "bg-[var(--color-primary)] text-[var(--color-primary-fg)]"
+                    : "bg-[var(--color-bg-subtle)] text-[var(--color-fg-subtle)]"
+                }`}
+              >
+                {col.primary ? "HOKENA CRM" : col.label}
+              </div>
+            ))}
+          </div>
+
+          {/* Rows as cards */}
+          {ROWS.map((row) => (
+            <div
+              key={row.label}
+              className="border border-[var(--color-border)] rounded-[6px] overflow-hidden"
+            >
+              <div className="px-4 py-3 bg-[var(--color-bg-subtle)] border-b border-[var(--color-border)]">
+                <p className="text-[13px] font-medium text-[var(--color-fg)] leading-[1.6]">
+                  {row.label}
+                </p>
+                {row.note && (
+                  <p className="mt-0.5 text-[11px] text-[var(--color-fg-subtle)]">
+                    {row.note}
+                  </p>
+                )}
+              </div>
+              <div className="grid grid-cols-3 divide-x divide-[var(--color-border)]">
+                <div className="flex items-center justify-center py-3.5 bg-[var(--color-bg)]">
+                  <Mark value={row.excel} />
+                </div>
+                <div className="flex items-center justify-center py-3.5 bg-[var(--color-bg)]">
+                  <Mark value={row.generic} />
+                </div>
+                <div className="flex items-center justify-center py-3.5 bg-[var(--color-primary)]/[0.04]">
+                  <Mark value={row.hokena} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: table */}
+        <div className="mt-12 hidden md:block overflow-x-auto border border-[var(--color-border)] rounded-[6px]">
           <table className="w-full text-[13.5px] num">
             <thead>
               <tr className="bg-[var(--color-bg-subtle)] border-b border-[var(--color-border)]">

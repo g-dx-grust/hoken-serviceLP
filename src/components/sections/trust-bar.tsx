@@ -189,7 +189,7 @@ export function TrustBar() {
             en="INSURANCE COMPANY INTEGRATIONS"
             jp="主要保険会社の手数料CSV・書面様式を確認"
           />
-          <div className="mt-6 mx-auto max-w-[1080px] grid grid-cols-3 md:grid-cols-6 border border-[var(--color-border)] divide-x divide-[var(--color-border)] bg-[var(--color-bg)]">
+          <div className="mt-6 mx-auto max-w-[1080px] grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 border border-[var(--color-border)] gap-px bg-[var(--color-border)]">
             {INSURERS.map((item) => (
               <InsurerMark key={item.name} item={item} />
             ))}
